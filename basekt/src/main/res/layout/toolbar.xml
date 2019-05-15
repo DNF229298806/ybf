@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 自定义Toolbar布局 -->
+
+    <data>
+
+        <variable
+            name="toolbarVm"
+            type="com.example.basekt.widgets.IToolbar"/>
+        <import type="android.view.View"/>
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rl_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        tools:background="@color/colorAccent"
+        app:toolbarBackgroundColor="@{toolbarVm.titleBackgroundColor}">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:onClick="@{toolbarVm.leftIconClick::doSomething}"
+            android:scaleType="center"
+            android:src="@mipmap/back_black"
+            android:visibility="@{toolbarVm.showLeftIcon ? View.VISIBLE : View.GONE}"
+            app:toolbarSrc="@{toolbarVm.leftIcon}"/>
+
+        <TextView
+            android:id="@+id/tv_back"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:onClick="@{toolbarVm.leftTextClick::doSomething}"
+            android:text="@{toolbarVm.leftText}"
+            tools:text="左边"
+            android:visibility="@{toolbarVm.showLeftText ? View.VISIBLE : View.GONE}"
+            app:toolbarTextColor="@{toolbarVm.leftTextColor}"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            tools:text="聊天界面"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@{toolbarVm.title}"
+            android:textSize="17sp"/>
+
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+            android:onClick="@{toolbarVm.rightTextClick::doSomething}"
+            android:text="@{toolbarVm.rightText}"
+            android:visibility="@{toolbarVm.showRightText ? View.VISIBLE : View.GONE}"
+            app:toolbarTextColor="@{toolbarVm.rightTextColor}"/>
+
+        <ImageView
+            android:id="@+id/iv_right"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:onClick="@{toolbarVm.rightIconClick::doSomething}"
+            android:scaleType="center"
+            android:src="@mipmap/back_black"
+            android:visibility="@{toolbarVm.showRightIcon ? View.VISIBLE : View.GONE}"
+            app:toolbarSrc="@{toolbarVm.rightIcon}"/>
+
+    </RelativeLayout>
+</layout>
