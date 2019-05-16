@@ -1,6 +1,7 @@
 package com.example.basekt.base
 
 import android.databinding.DataBindingUtil
+import android.databinding.ObservableField
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
@@ -15,6 +16,9 @@ import io.reactivex.internal.disposables.ListCompositeDisposable
  */
 class BaseLoginActivity : AppCompatActivity() {
     val mDisposable = ListCompositeDisposable()
+    val userName = ObservableField<String>("")
+    val passWord = ObservableField<String>("")
+
     val binding: BaseLoginLayoutBinding by lazy {
         DataBindingUtil.setContentView<BaseLoginLayoutBinding>(
             this,
@@ -24,7 +28,7 @@ class BaseLoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        
+        binding.at = this
     }
 
     override fun onDestroy() {

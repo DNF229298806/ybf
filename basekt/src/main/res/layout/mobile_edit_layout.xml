@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="mobile"
+            type="com.example.basekt.widgets.MobileEditText"/>
+
+        <variable
+            name="text"
+            type="android.databinding.ObservableField&lt;String&gt;"/>
+        <import type="android.view.View"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:orientation="horizontal">
+
+            <!-- app:onEditFocusChange="@{mobile::onFocusChange}"-->
+            <EditText
+                android:text="@={text}"
+                android:onTextChanged="@{mobile::onTextChanged}"
+                android:id="@+id/mobileEditText"
+                android:layout_width="0dp"
+                android:layout_height="49dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/accountHintPutMobile"
+                android:inputType="phone"
+                android:lines="1"
+                android:maxLength="13"/>
+
+
+            <ImageView
+                android:onClick="@{mobile::onDeleteClick}"
+                android:visibility="@{mobile.showDelete?View.VISIBLE:View.GONE}"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/icon_delete"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/accountColorEditTextLine"/>
+    </LinearLayout>
+</layout>

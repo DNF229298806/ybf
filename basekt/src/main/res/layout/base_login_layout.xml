@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="at" type="com.example.basekt.base.BaseLoginActivity"/>
+        <variable name="mobileEdit" type="com.example.basekt.widgets.MobileEditText"/>
+        <variable name="passwordEdit" type="com.example.basekt.widgets.PasswordEditText"/>
     </data>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/phone_number"/>
 
+        <include
+                app:mobile="@{mobileEdit}"
+                app:text="@{at.userName}"
+                layout="@layout/mobile_edit_layout"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/password"/>
+
+        <include
+                android:id="@+id/passwordEditText"
+                app:password="@{passwordEdit}"
+                    app:text="@{at.passWord}"
+                layout="@layout/password_edit_layout"/>
     </LinearLayout>
 </layout>
