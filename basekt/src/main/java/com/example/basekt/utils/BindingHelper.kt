@@ -24,10 +24,6 @@ fun setPassWordDrawable(im: ImageView, @DrawableRes drawableId: Int) {
 @BindingAdapter("onEditFocusChange")
 fun View.onFocusChange(listener: OnFocusChangeListener) {
     onFocusChangeListener = listener
-    /* view.onFocusChangeListener = object : View.OnFocusChangeListener{
-         override fun onFocusChange(v: View?, hasFocus: Boolean) {
-         }
-     }*/
 }
 
 @BindingAdapter("visibleOrGone")

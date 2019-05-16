@@ -11,21 +11,8 @@ import android.view.View
  */
 class PasswordEditText : MobileEditText() {
     var isShowPassword = ObservableBoolean(false)
+
     fun onShowPasswordClick(view: View) {
-
         isShowPassword.set(!isShowPassword.get())
-        /*editText.get()?.let {
-            it.transformationMethod =
-                if (isShowPassword) HideReturnsTransformationMethod.getInstance() else PasswordTransformationMethod.getInstance()
-            it.setSelection(it.length())
-        }
-
-        img.get()?.let {
-            it.setImageDrawable(ContextCompat.getDrawable(it.context,if (isShowPassword) R.mipmap.icon_cansee else R.mipmap.icon_notsee))
-        }
-
-        isShowPassword = !isShowPassword*/
     }
-
-
 }
