@@ -14,4 +14,7 @@
     <!--<的ASCII码为 &#060;>的ASCII码为 &#062; @的ASCII码为 &#064; &的ASCII码为 &#038; \的&#092;'的为039-->
     <string name="accountRulePassword">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-/|\\;,:()$&#038;".?!{}[]#%^*+=_~@&#060;&#062;&#039;&#092;</string>
     <string name="accountHintPutPassword">请输入密码</string>
+    <string name="login">登录</string>
+    <string name="forget_password">忘记密码?</string>
+    <string name="login_other">其他登录方式</string>
 </resources>

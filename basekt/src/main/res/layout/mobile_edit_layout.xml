@@ -33,6 +33,7 @@
                 android:maxLength="13"
                 android:onTextChanged="@{mobile::onTextChanged}"
                 android:text="@={mobile.text}"
+                android:textSize="@dimen/font_size_30px"
                 app:onEditFocusChange="@{mobile::onFocusChange}"/>
 
 

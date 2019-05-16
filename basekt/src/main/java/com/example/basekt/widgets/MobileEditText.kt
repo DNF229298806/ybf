@@ -10,9 +10,7 @@ import android.view.View
  * 用于控制手机输入框
  */
 open class MobileEditText {
-    /**
-     * 弱引用持有 防止泄露
-     */
+
     val text = ObservableField<String>("")
     val showDelete = ObservableBoolean(false)
 

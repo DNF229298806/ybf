@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#5A8DDF</color>
     <color name="colorWhite">#FFFFFF</color>
     <!-- 全透明 -->
     <color name="colorTransparency">#00000000</color>
@@ -13,5 +13,15 @@
     <color name="XFrame_white">#ffffff</color>
     <color name="XFrame_text_gray">#8a8a8a</color>
     <color name="accountColorEditTextLine">#DDDDDD</color>
-
+    <color name="windowBackground">#F4F4F4</color>
+    <color name="textColor">#333333</color>
+    <color name="textColorHint">#757575</color>
+    <color name="white90">#EEFFFFFF</color>
+    <!-- 按钮按压时的颜色 -->
+    <color name="colorButtonPressed">#1976d2</color>
+    <!-- 按钮禁用时的颜色 -->
+    <color name="colorButtonDisable">#DDDDDD</color>
+    <!-- 分割线的颜色 -->
+    <color name="colorLine">#ECECEC</color>
+    <color name="black50">#88000000</color>
 </resources>
