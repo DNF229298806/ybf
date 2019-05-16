@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProvider;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -58,6 +59,7 @@ public abstract class BaseActivity<VM extends BaseActivityViewModel,K,Binding ex
         // 写一些其他的应该在onCreate方法中的业务逻辑
         doOnCreate(savedInstanceState);
     }
+
 
     @Override
     protected void onDestroy() {

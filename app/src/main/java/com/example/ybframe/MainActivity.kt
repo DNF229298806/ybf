@@ -1,10 +1,13 @@
 package com.example.ybframe
 
+import android.content.Intent
 import android.os.Bundle
 import com.blankj.utilcode.util.ToastUtils
 import com.example.basekt.base.BaseActivity
+import com.example.basekt.base.BaseLoginActivity
 import com.example.basekt.widgets.IToolbar
 import com.example.ybframe.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity<MainViewModel, Any, ActivityMainBinding>() {
     override fun setLayout(): Int {
@@ -21,6 +24,7 @@ class MainActivity : BaseActivity<MainViewModel, Any, ActivityMainBinding>() {
     }
 
     override fun doOnCreate(savedInstanceState: Bundle?) {
+        bt.setOnClickListener { startActivity(Intent(this, BaseLoginActivity::class.java)) }
         fun initToolBar() {
             val toolbar = IToolbar()
             toolbar.title.set("中华人民共和国成立了")

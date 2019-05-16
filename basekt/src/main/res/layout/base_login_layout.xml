@@ -1,33 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
     <data>
-        <variable name="at" type="com.example.basekt.base.BaseLoginActivity"/>
-        <variable name="mobileEdit" type="com.example.basekt.widgets.MobileEditText"/>
-        <variable name="passwordEdit" type="com.example.basekt.widgets.PasswordEditText"/>
+
+        <variable
+            name="at"
+            type="com.example.basekt.base.BaseLoginActivity"/>
+
+        <variable
+            name="mobileEdit"
+            type="com.example.basekt.widgets.MobileEditText"/>
+
+        <variable
+            name="passwordEdit"
+            type="com.example.basekt.widgets.PasswordEditText"/>
     </data>
+
     <LinearLayout
-            android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/phone_number"/>
+
+        <include
+            layout="@layout/mobile_edit_layout"
+            app:mobile="@{mobileEdit}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/password"/>
+
+        <include
+            android:id="@+id/passwordEditText"
+            layout="@layout/password_edit_layout"
+            app:password="@{passwordEdit}"/>
+
+        <Button
+            android:id="@+id/dengl"
+            android:text="DENGLU"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/phone_number"/>
+            android:layout_height="50dp"/>
 
-        <include
-                app:mobile="@{mobileEdit}"
-                app:text="@{at.userName}"
-                layout="@layout/mobile_edit_layout"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/password"/>
-
-        <include
-                android:id="@+id/passwordEditText"
-                app:password="@{passwordEdit}"
-                    app:text="@{at.passWord}"
-                layout="@layout/password_edit_layout"/>
     </LinearLayout>
 </layout>

@@ -1,11 +1,12 @@
 package com.example.basekt.utils
 
 import android.databinding.BindingAdapter
-import android.support.annotation.DrawableRes
-import android.support.v4.content.ContextCompat
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Patterns
 import android.view.View
 import android.view.View.*
+import android.widget.EditText
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import java.io.File
@@ -15,10 +16,10 @@ import java.io.File
  * @date 2019/5/15 22:01
  */
 
-@BindingAdapter("passwordDrawable")
+/*@BindingAdapter("passwordDrawable")
 fun setPassWordDrawable(im: ImageView, @DrawableRes drawableId: Int) {
     im.setImageDrawable(ContextCompat.getDrawable(im.context, drawableId))
-}
+}*/
 
 @BindingAdapter("onEditFocusChange")
 fun View.onFocusChange(listener: OnFocusChangeListener) {
@@ -52,4 +53,16 @@ fun ImageView.setImageUrl(url: String?) {
         Glide.with(this).load(file).into(this)
     }
 }
+
+/**
+ * 控制密码输入框的 密码是明文还是密文
+ */
+@BindingAdapter("transformationMethod")
+fun EditText.setTransformationMethod(show: Boolean) {
+    transformationMethod = if (show) HideReturnsTransformationMethod.getInstance() else PasswordTransformationMethod.getInstance()
+}
+
+
+
+
 

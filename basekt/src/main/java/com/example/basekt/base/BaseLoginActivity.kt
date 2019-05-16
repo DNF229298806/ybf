@@ -1,13 +1,14 @@
 package com.example.basekt.base
 
 import android.databinding.DataBindingUtil
-import android.databinding.ObservableField
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
+import com.blankj.utilcode.util.ToastUtils
 import com.example.basekt.R
 import com.example.basekt.clearDisposable
 import com.example.basekt.databinding.BaseLoginLayoutBinding
+import com.example.basekt.widgets.MobileEditText
+import com.example.basekt.widgets.PasswordEditText
 import io.reactivex.internal.disposables.ListCompositeDisposable
 
 /**
@@ -16,19 +17,20 @@ import io.reactivex.internal.disposables.ListCompositeDisposable
  */
 class BaseLoginActivity : AppCompatActivity() {
     val mDisposable = ListCompositeDisposable()
-    val userName = ObservableField<String>("")
-    val passWord = ObservableField<String>("")
 
-    val binding: BaseLoginLayoutBinding by lazy {
-        DataBindingUtil.setContentView<BaseLoginLayoutBinding>(
-            this,
-            R.layout.base_login_layout
-        )
-    }
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    lateinit var binding: BaseLoginLayoutBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.base_login_layout)
         binding.at = this
+        binding.mobileEdit = MobileEditText()
+        binding.passwordEdit = PasswordEditText()
+        binding.dengl.setOnClickListener {
+            ToastUtils.showLong("userName:${binding.mobileEdit?.text?.get()}  " +
+                    " password:${binding.passwordEdit?.text?.get()}")
+        }
     }
 
     override fun onDestroy() {

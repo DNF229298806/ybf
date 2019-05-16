@@ -1,35 +1,33 @@
 package com.example.basekt.widgets
 
 import android.databinding.ObservableBoolean
+import android.databinding.ObservableField
 import android.view.View
-import android.widget.EditText
-import java.lang.ref.WeakReference
 
 /**
  * @author 20888
  * @date 2019/4/13 16:32
  * 用于控制手机输入框
  */
-open class MobileEditText(editText: EditText) {
+open class MobileEditText {
     /**
      * 弱引用持有 防止泄露
      */
-    var editText: WeakReference<EditText> = WeakReference(editText)
-    var showDelete = ObservableBoolean(false)
+    val text = ObservableField<String>("")
+    val showDelete = ObservableBoolean(false)
 
     fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-        editText.get()?.let {
-            showDelete.set(it.isFocusable && it.text.isNotEmpty())
-        }
-        //showDelete.set(editText.get()?.isFocusable ?: false && editText.get()?.text?.length ?: 0 > 0)
+        showDelete.set(charSequence.isNotEmpty())
     }
 
-    fun onFocusChange(v: View?, hasFocus: Boolean) {
-        showDelete.set(hasFocus)
+    /**
+     * 当有焦点 而且输入框不为空的时候可以显示
+     */
+    fun onFocusChange(v: View, hasFocus: Boolean) {
+        showDelete.set(hasFocus && text.get()?.isNotEmpty() == true)
     }
-
 
     fun onDeleteClick(view: View) {
-        editText.get()?.setText("")
+        text.set("")
     }
 }
