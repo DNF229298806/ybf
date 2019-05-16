@@ -45,8 +45,7 @@ fun ImageView.setImageUrl(url: String?) {
     if (Patterns.WEB_URL.matcher(url).matches()) {
         Glide.with(this).load(url).getRequestOptions().into(this)
     } else {
-        val file = File(url)
-        Glide.with(this).load(file).into(this)
+        Glide.with(this).load(File(url)).into(this)
     }
 }
 

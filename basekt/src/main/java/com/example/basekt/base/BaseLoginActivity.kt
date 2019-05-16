@@ -3,6 +3,7 @@ package com.example.basekt.base
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.blankj.utilcode.util.ToastUtils
 import com.example.basekt.R
 import com.example.basekt.clearDisposable
@@ -22,15 +23,26 @@ class BaseLoginActivity : AppCompatActivity() {
     lateinit var binding: BaseLoginLayoutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        fun initToolbar() {
+            with(binding) {
+
+            }
+        }
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.base_login_layout)
-        binding.at = this
-        binding.mobileEdit = MobileEditText()
-        binding.passwordEdit = PasswordEditText()
-        binding.dengl.setOnClickListener {
-            ToastUtils.showLong("userName:${binding.mobileEdit?.text?.get()}  " +
-                    " password:${binding.passwordEdit?.text?.get()}")
+        with(binding){
+            at = this@BaseLoginActivity
+            mobileEdit = MobileEditText()
+            passwordEdit = PasswordEditText()
         }
+
+        initToolbar()
+    }
+
+
+    fun onLoginClick(view: View) {
+        ToastUtils.showLong("userName:${binding.mobileEdit?.text?.get()}  " +
+                " password:${binding.passwordEdit?.text?.get()}")
     }
 
     override fun onDestroy() {

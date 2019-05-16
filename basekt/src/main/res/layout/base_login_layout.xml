@@ -16,12 +16,20 @@
         <variable
             name="passwordEdit"
             type="com.example.basekt.widgets.PasswordEditText"/>
+
+        <variable
+            name="toolbar"
+            type="com.example.basekt.widgets.IToolbar"/>
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <!--<include
+            layout="@layout/toolbar"
+            app:toolbarVm="@{toolbar}"/>-->
 
         <TextView
             android:layout_width="wrap_content"
@@ -43,10 +51,21 @@
             app:password="@{passwordEdit}"/>
 
         <Button
-            android:id="@+id/dengl"
-            android:text="DENGLU"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:clickable="true"
+            android:focusable="true"/>
+        <!--<com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+                android:layout_marginTop="10dp"
+                app:qmui_isRadiusAdjustBounds="true"
+                app:qmui_backgroundColor="@color/colorAccent"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:id="@+id/dengl"
+                android:text="DENGLU"
+                android:layout_width="300dp"
+                android:layout_height="50dp"/>-->
 
     </LinearLayout>
 </layout>

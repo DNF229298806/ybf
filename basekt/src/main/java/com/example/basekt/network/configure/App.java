@@ -50,6 +50,8 @@ public class App extends Application implements Application.ActivityLifecycleCal
 
         //全局调用网络请求
         api = ApiUtils.INSTANCE.getApi(this);
+        //qmui
+       // QMUISwipeBackActivityManager.init(this);
     }
 
     /**

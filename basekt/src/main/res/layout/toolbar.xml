@@ -37,6 +37,7 @@
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:gravity="center"
+            tools:visibility="gone"
             android:onClick="@{toolbarVm.leftTextClick::doSomething}"
             android:text="@{toolbarVm.leftText}"
             tools:text="左边"
@@ -64,6 +65,7 @@
             app:toolbarTextColor="@{toolbarVm.rightTextColor}"/>
 
         <ImageView
+            tools:visibility="gone"
             android:id="@+id/iv_right"
             android:layout_width="50dp"
             android:layout_height="match_parent"
