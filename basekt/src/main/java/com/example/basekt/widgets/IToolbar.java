@@ -68,11 +68,11 @@ public class IToolbar {
     /**
      * 设置右侧图标显示隐藏
      */
-    public ObservableBoolean showRightIcon = new ObservableBoolean(true);
+    public ObservableBoolean showRightIcon = new ObservableBoolean(false);
     /**
      * 设置右侧文字显示隐藏
      */
-    public ObservableBoolean showRightText = new ObservableBoolean(true);
+    public ObservableBoolean showRightText = new ObservableBoolean(false);
 
     /**
      * 缺省的点击事件

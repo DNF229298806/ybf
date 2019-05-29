@@ -15,15 +15,15 @@ public class BaseActivityViewModel<A extends Activity, T> extends BaseViewModel<
     /**
      * 获取Activity的回调
      */
-    public GetActivityCallback<A> activity;
+    public GetActivityCallback<A> activityCallback;
 
     /**
      * 设置Activity(在Fragment中可以不用设置)
      *
-     * @param activity Activity
+     * @param activityCallback Activity
      */
-    public void setActivity(GetActivityCallback<A> activity) {
-        this.activity = activity;
+    public void setActivity(GetActivityCallback<A> activityCallback) {
+        this.activityCallback = activityCallback;
     }
 
 }

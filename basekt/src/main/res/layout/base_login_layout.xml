@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="at"
-            type="com.example.basekt.base.BaseLoginActivity"/>
+            name="vm"
+            type="com.example.basekt.base.BaseLoginViewModel"/>
 
         <variable
             name="mobileEdit"
@@ -80,7 +80,7 @@
             android:layout_marginStart="@dimen/space_60"
             android:layout_marginTop="@dimen/space_30"
             android:layout_marginEnd="@dimen/space_120"
-            android:onClick="@{at::onForgetPasswordClick}"
+            android:onClick="@{vm::onForgetPasswordClick}"
             android:text="@string/forget_password"
             android:textColor="@color/colorAccent"/>
 
@@ -91,7 +91,7 @@
             android:layout_marginLeft="@dimen/space_80"
             android:layout_marginTop="@dimen/space_40"
             android:layout_marginRight="@dimen/space_80"
-            android:onClick="@{at::onLoginClick}"
+            android:onClick="@{vm::onLoginClick}"
             android:text="@string/login"/>
 
         <View
@@ -137,7 +137,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="@{at::onQQClick}"
+                android:onClick="@{vm::onQQClick}"
                 android:src="@mipmap/ic_login_qq"/>
 
             <ImageView
@@ -145,7 +145,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="@{at::onWeChatClick}"
+                android:onClick="@{vm::onWeChatClick}"
                 android:src="@mipmap/ic_login_wx"/>
 
             <ImageView
@@ -153,7 +153,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="@{at::onSinaClick}"
+                android:onClick="@{vm::onSinaClick}"
                 android:src="@mipmap/ic_login_weibo"/>
         </LinearLayout>
 

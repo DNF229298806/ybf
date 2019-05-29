@@ -14,7 +14,7 @@ class MainActivity : BaseActivity<MainViewModel, Any, ActivityMainBinding>() {
         return R.layout.activity_main
     }
 
-    override fun bindView(entity: Any?) {
+    override fun bindView(entity: Any) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

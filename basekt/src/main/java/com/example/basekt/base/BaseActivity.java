@@ -5,10 +5,11 @@ import android.arch.lifecycle.ViewModelProvider;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import com.example.basekt.BR;
 import com.example.basekt.ExpandKt;
 import io.reactivex.internal.disposables.ListCompositeDisposable;
 
@@ -55,7 +56,7 @@ public abstract class BaseActivity<VM extends BaseActivityViewModel,K,Binding ex
         viewModel.getLiveData().observe(this,observable);
         // 让xml内绑定的LiveData和Observer建立连接,也正是应为这段代码,让LiveData能感知Activity的生命周期
         binding.setLifecycleOwner(this);
-        //binding.setVariable(BR.vm,viewModel);
+        binding.setVariable(BR.vm,viewModel);
         // 写一些其他的应该在onCreate方法中的业务逻辑
         doOnCreate(savedInstanceState);
     }
@@ -84,7 +85,7 @@ public abstract class BaseActivity<VM extends BaseActivityViewModel,K,Binding ex
      *
      * @param entity 实体类对象
      */
-    abstract protected void bindView(K entity);
+    abstract protected void bindView(@NonNull K entity);
 
     /**
      * 获取ViewModel的class,即VM.class
