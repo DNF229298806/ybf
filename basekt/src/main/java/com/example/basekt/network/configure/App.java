@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import com.example.basekt.network.ApiUtils;
 import com.example.basekt.utils.TimberUtil;
+import com.hjq.umeng.UmengClient;
 
 import java.util.Stack;
 
@@ -52,6 +53,9 @@ public class App extends Application implements Application.ActivityLifecycleCal
         api = ApiUtils.INSTANCE.getApi(this);
         //qmui
        // QMUISwipeBackActivityManager.init(this);
+
+        // 初始化友盟 SDK
+        UmengClient.init(this);
     }
 
     /**

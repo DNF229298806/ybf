@@ -1,1 +1,1 @@
-include ':app', ':basekt'
+include ':app', ':basekt', ':umeng'

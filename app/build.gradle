@@ -5,7 +5,9 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    //compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.ybframe"
         minSdkVersion 19
@@ -30,6 +32,61 @@ android {
     compileOptions {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
+    }
+
+    flavorDimensions "default" //这个名字貌似随便取 也可以有多个 总之一定要有的
+    productFlavors {
+        //酷安 应用宝 百度 小米 华为 谷歌
+        kuan {}
+        tencent {}
+        baidu {}
+        xiaomi {}
+        huawei {}
+        google {}
+
+        //使用Groovy动态替换渠道值
+        productFlavors.all {
+            flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        }
+    }
+
+    // JNI 目录
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    // 执行配置
+    applicationVariants.all { variant ->
+
+        // Apk 输出配置
+        variant.outputs.all { output ->
+            def appName = "AndroidProject"
+            if (variant.buildType.name == 'debug') {
+                outputFileName = appName + '_v' + versionName + '_' + variant.buildType.name + '.apk'
+            } else {
+                outputFileName = appName + '_v' + versionName + '_' + new Date().format("yyyyMMdd") + '_' + variant.productFlavors[0].name + '_' + variant.buildType.name + '.apk'
+            }
+        }
+
+        // AndroidManifest 输出配置 临时用的是写死的 不写死的会报错 暂时没有解决
+       // variant.outputs[0].processManifest.doLast {
+        variant.outputs[0].processManifest.doLast {
+            def manifestFile = "$manifestOutputDirectory/AndroidManifest.xml"
+
+            def tempManifestFile = "D:\\wyb_android_work_space\\ybframe\\app\\build\\intermediates\\merged_manifests\\baiduDebug/AndroidManifest.xml"
+
+            def updatedContent = new File(tempManifestFile).getText('UTF-8')
+                    .replaceAll("UMENG_APPKEY_VALUE", "5cb16d93570df399fd0014e2") // 友盟 AppKey
+                    .replaceAll("QQ_APPID_VALUE", "100424468") // QQ AppId
+                    .replaceAll("QQ_APPKEY_VALUE", "c7394704798a158208a74ab60104f0ba") // QQ Key
+                    .replaceAll("WX_APPID_VALUE", "wxdc1e388c3822c80b") // 微信 AppId
+                    .replaceAll("WX_APPKEY_VALUE", "3baf1193c85774b3fd9d18447d76cab0") // 微信 Key
+                    .replaceAll("SN_APPID_VALUE", "3921700954") // 新浪 AppId
+                    .replaceAll("SN_APPKEY_VALUE", "04b48b094faeb16683c32669824ebdad") // 新浪 Key
+            new File(tempManifestFile).write(updatedContent, 'UTF-8')
+        }
     }
 }
 

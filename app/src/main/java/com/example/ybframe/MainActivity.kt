@@ -37,4 +37,6 @@ class MainActivity : BaseActivity<MainViewModel, Any, ActivityMainBinding>() {
         initToolBar()
     }
 
+
+
 }
