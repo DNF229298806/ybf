@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.blankj.utilcode.util.ToastUtils
 import com.example.basekt.base.BaseActivity
-import com.example.basekt.base.BaseLoginActivity
+import com.example.basekt.base.login.BaseLoginActivity
 import com.example.basekt.widgets.IToolbar
 import com.example.ybframe.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*

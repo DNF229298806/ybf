@@ -14,16 +14,14 @@ import com.example.basekt.ExpandKt;
 import io.reactivex.internal.disposables.ListCompositeDisposable;
 
 /**
- *
  * JetPack BaseActivity
  *
- * @author Lznby
- *
- * @param <VM> 对应实现BaseViewModel的子类(或BaseViewModel)
- * @param <K> BaseViewModel实现类中对应的实体类的类型 BaseViewModel<A,K>
+ * @param <VM>      对应实现BaseViewModel的子类(或BaseViewModel)
+ * @param <K>       BaseViewModel实现类中对应的实体类的类型 BaseViewModel<A,K>
  * @param <Binding> ViewDataBinding
+ * @author Lznby
  */
-public abstract class BaseActivity<VM extends BaseActivityViewModel,K,Binding extends ViewDataBinding> extends AppCompatActivity {
+public abstract class BaseActivity<VM extends BaseActivityViewModel, K, Binding extends ViewDataBinding> extends AppCompatActivity {
 
     /**
      * 管理RxJava线程
@@ -41,10 +39,10 @@ public abstract class BaseActivity<VM extends BaseActivityViewModel,K,Binding ex
     public Binding binding;
 
     @Override
-    protected void onCreate( Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // dataBinding方式设置布局
-        binding = DataBindingUtil.setContentView(this,setLayout());
+        binding = DataBindingUtil.setContentView(this, setLayout());
         // 配置ViewModel
         viewModel = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()).create(getClazz());
         viewModel.setActivity(() -> this);
@@ -53,10 +51,10 @@ public abstract class BaseActivity<VM extends BaseActivityViewModel,K,Binding ex
         this.getLifecycle().addObserver(viewModel);
         // 绑定该数据的UI代码(将LiveData数据与视图进行单向绑定,LiveData数据变化时,对应的视图会自动刷新
         final Observer<K> observable = this::bindView;
-        viewModel.getLiveData().observe(this,observable);
+        viewModel.getLiveData().observe(this, observable);
         // 让xml内绑定的LiveData和Observer建立连接,也正是应为这段代码,让LiveData能感知Activity的生命周期
         binding.setLifecycleOwner(this);
-        binding.setVariable(BR.vm,viewModel);
+        binding.setVariable(BR.vm, viewModel);
         // 写一些其他的应该在onCreate方法中的业务逻辑
         doOnCreate(savedInstanceState);
     }
@@ -75,7 +73,7 @@ public abstract class BaseActivity<VM extends BaseActivityViewModel,K,Binding ex
     /**
      * 布局文件的id
      *
-     * @return  return R.layout.xxx
+     * @return return R.layout.xxx
      */
     protected abstract @LayoutRes
     int setLayout();

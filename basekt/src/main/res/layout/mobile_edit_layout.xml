@@ -38,7 +38,7 @@
 
 
             <ImageView
-                visibleOrGone="@{mobile.showDelete}"
+                app:visibleOrGone="@{mobile.showDelete}"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center"

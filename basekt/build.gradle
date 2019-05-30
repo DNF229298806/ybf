@@ -108,6 +108,10 @@ dependencies {
     def basePopupReleaseVersion = '2.1.9'
     api "com.github.razerdp:BasePopup:$basePopupReleaseVersion"
 
+    //HUD 转圈圈库
+    def kprogressHudVersion = '1.2.0'
+    implementation "com.kaopiz:kprogresshud:$kprogressHudVersion"
+
 /*    //QMUI 基础UI库
     def QMUIVersion = '1.2.0'
     api "com.qmuiteam:qmui:$QMUIVersion"
