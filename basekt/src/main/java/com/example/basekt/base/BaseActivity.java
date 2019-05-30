@@ -11,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import com.example.basekt.BR;
 import com.example.basekt.ExpandKt;
+import com.kaopiz.kprogresshud.KProgressHUD;
 import io.reactivex.internal.disposables.ListCompositeDisposable;
 
 /**
@@ -37,7 +38,7 @@ public abstract class BaseActivity<VM extends BaseActivityViewModel, K, Binding 
      * 缺省的Binding
      */
     public Binding binding;
-
+    public KProgressHUD loadProgressHUD;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +56,10 @@ public abstract class BaseActivity<VM extends BaseActivityViewModel, K, Binding 
         // 让xml内绑定的LiveData和Observer建立连接,也正是应为这段代码,让LiveData能感知Activity的生命周期
         binding.setLifecycleOwner(this);
         binding.setVariable(BR.vm, viewModel);
+        loadProgressHUD = KProgressHUD.create(this).setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
+                .setDimAmount(0.5f)
+                .setLabel("正在加载...")
+                .setCancellable(true);
         // 写一些其他的应该在onCreate方法中的业务逻辑
         doOnCreate(savedInstanceState);
     }

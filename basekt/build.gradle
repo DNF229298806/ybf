@@ -38,7 +38,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(path: ':umeng')
+    api project(path: ':umeng')
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
@@ -110,7 +110,7 @@ dependencies {
 
     //HUD 转圈圈库
     def kprogressHudVersion = '1.2.0'
-    implementation "com.kaopiz:kprogresshud:$kprogressHudVersion"
+    api "com.kaopiz:kprogresshud:$kprogressHudVersion"
 
 /*    //QMUI 基础UI库
     def QMUIVersion = '1.2.0'

@@ -15,7 +15,7 @@ import com.hjq.umeng.UmengClient
  * @author 20888
  * @date 2019/5/15 11:22
  */
-class BaseLoginActivity : BaseActivity<BaseLoginViewModel, Any, BaseLoginLayoutBinding>(){
+open class BaseLoginActivity : BaseActivity<BaseLoginViewModel, Any, BaseLoginLayoutBinding>(){
     override fun bindView(entity: Any) {
     }
 
