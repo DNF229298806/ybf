@@ -6,42 +6,62 @@
     <data>
 
         <variable
-                name="vm"
-                type="com.example.ybframe.MainViewModel"/>
+            name="vm"
+            type="com.example.ybframe.MainViewModel"/>
 
         <variable
-                name="toolbar"
-                type="com.example.basekt.widgets.IToolbar"/>
+            name="toolbar"
+            type="com.example.basekt.widgets.IToolbar"/>
     </data>
 
+     <ScrollView
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
     <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:context=".MainActivity">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
         <include
-                layout="@layout/toolbar"
-                app:toolbarVm="@{toolbar}"/>
+            layout="@layout/toolbar"
+            app:toolbarVm="@{toolbar}"/>
 
         <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hello World!"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!"/>
+
         <Button
-                android:text="登路"
-                android:id="@+id/bt"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"/>
+            android:id="@+id/bt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="登路"/>
+
         <Button
-                android:text="测试1"
-                android:id="@+id/bt1"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"/>
+            android:id="@+id/bt1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="测试1"/>
+
         <Button
-                android:text="测试2"
-                android:id="@+id/bt2"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"/>
+            android:id="@+id/bt2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="测试2"/>
+
+        <ImageView
+            android:layout_gravity="center"
+            tools:src="@mipmap/app_logo"
+            android:id="@+id/iv_glide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_html"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
+      </ScrollView>
+
 </layout>

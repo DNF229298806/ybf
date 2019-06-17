@@ -6,7 +6,11 @@ import com.blankj.utilcode.util.ToastUtils
 import com.example.basekt.base.BaseActivity
 import com.example.basekt.widgets.IToolbar
 import com.example.ybframe.databinding.ActivityMainBinding
+import com.example.ybframe.testclass.AAAA
 import kotlinx.android.synthetic.main.activity_main.*
+
+
+
 
 class MainActivity : BaseActivity<MainViewModel, Any, ActivityMainBinding>() {
     override fun setLayout(): Int {
@@ -24,6 +28,7 @@ class MainActivity : BaseActivity<MainViewModel, Any, ActivityMainBinding>() {
 
     override fun doOnCreate(savedInstanceState: Bundle?) {
         bt.setOnClickListener { startActivity(Intent(this, LoginActivity::class.java)) }
+        bt1.setOnClickListener { startActivity(Intent(this, AAAA::class.java)) }
         fun initToolBar() {
             val toolbar = IToolbar()
             toolbar.title.set("中华人民共和国成立了")
@@ -35,7 +40,6 @@ class MainActivity : BaseActivity<MainViewModel, Any, ActivityMainBinding>() {
         }
         initToolBar()
     }
-
 
 
 }

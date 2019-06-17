@@ -32,22 +32,13 @@ class BaseLoginViewModel : BaseActivityViewModel<BaseLoginActivity, Any>(), Umen
                 KeyboardUtils.hideSoftInput(view)
             }
         }?.binding?.apply {
-            if (validate(mobileEdit) || validate(passwordEdit)) {
+            if (validate(mobileEdit) || validate(passwordEdit))
                 ToastUtils.showShort("手机号或密码不能为空！")
-            } else {
+            else
                 //上面已经做了检查 所以这里可以忽略了
                 listener?.normalLogin(mobileEdit?.text?.get()!!, passwordEdit?.text?.get()!!)
-               /* activityCallback.activity.loadProgressHUD.setLabel("正在登录中....")
-                activityCallback.activity.loadProgressHUD.show()
-                val handler = Handler()
-                handler.postDelayed({
-                    activityCallback.activity.loadProgressHUD.dismiss()
-                }, 1000)*/
-                //这边是肯定接下来要网络请求 然后请求登录 登录以后进行dismiss 然后再进行跳转
-            }
-            Timber.e(
-                "userName:${mobileEdit?.text?.get()} \n password:${passwordEdit?.text?.get()}"
-            )
+
+            Timber.e("userName:${mobileEdit?.text?.get()} \n password:${passwordEdit?.text?.get()}")
         }
     }
 
@@ -86,21 +77,7 @@ class BaseLoginViewModel : BaseActivityViewModel<BaseLoginActivity, Any>(), Umen
         if (platform != null && data != null) {
             printData(platform, data)
             ToastUtils.showLong(platform.appName + "成功调起")
-
-            /* when (platform) {
-                 Platform.WEIXIN -> {
-
-                 }
-
-                 Platform.QQ -> {
-                 }
-
-                 Platform.SINA -> {
-                 }
-                 else -> {
-
-                 }
-             }*/
+            listener?.thirdPartyLogin(platform, data)
         }
     }
 

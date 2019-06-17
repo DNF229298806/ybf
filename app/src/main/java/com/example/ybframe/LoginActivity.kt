@@ -24,7 +24,7 @@ class LoginActivity : BaseLoginActivity() {
             }
 
             override fun thirdPartyLogin(platform: Platform, data: UmengLogin.LoginData) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                loadProgressHUD.setLabel("${platform.appName}调用成功，正在登录中").show()
             }
 
         }
