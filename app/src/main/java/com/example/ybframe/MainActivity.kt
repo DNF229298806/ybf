@@ -7,9 +7,8 @@ import com.example.basekt.base.BaseActivity
 import com.example.basekt.widgets.IToolbar
 import com.example.ybframe.databinding.ActivityMainBinding
 import com.example.ybframe.testclass.AAAA
+import com.example.ybframe.testclass.FZActivity
 import kotlinx.android.synthetic.main.activity_main.*
-
-
 
 
 class MainActivity : BaseActivity<MainViewModel, Any, ActivityMainBinding>() {
@@ -29,13 +28,15 @@ class MainActivity : BaseActivity<MainViewModel, Any, ActivityMainBinding>() {
     override fun doOnCreate(savedInstanceState: Bundle?) {
         bt.setOnClickListener { startActivity(Intent(this, LoginActivity::class.java)) }
         bt1.setOnClickListener { startActivity(Intent(this, AAAA::class.java)) }
+        bt3.setOnClickListener { startActivity(Intent(this, FZActivity::class.java)) }
         fun initToolBar() {
             val toolbar = IToolbar()
             toolbar.title.set("中华人民共和国成立了")
             toolbar.showLeftIcon.set(false)
             toolbar.leftIconClick = IToolbar.ClickCallback { ToastUtils.showLong("123123123123") }
             toolbar.showLeftText.set(false)
-            toolbar.titleBackgroundColor.set(android.R.color.holo_blue_bright)
+            toolbar.titleTextColor.set(android.R.color.holo_blue_dark)
+            toolbar.titleBackgroundColor.set(android.R.color.holo_red_light)
             binding.toolbar = toolbar
         }
         initToolBar()

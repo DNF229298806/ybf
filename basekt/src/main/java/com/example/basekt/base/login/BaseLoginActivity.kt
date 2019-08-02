@@ -15,13 +15,12 @@ import com.hjq.umeng.UmengClient
  * @author 20888
  * @date 2019/5/15 11:22
  */
-open class BaseLoginActivity : BaseActivity<BaseLoginViewModel, Any, BaseLoginLayoutBinding>(){
+open class BaseLoginActivity : BaseActivity<BaseLoginViewModel, Any, BaseLoginLayoutBinding>() {
     override fun bindView(entity: Any) {
     }
 
-    override fun setLayout(): Int {
-        return R.layout.base_login_layout
-    }
+    override fun setLayout() = R.layout.base_login_layout
+
 
     override fun getClazz(): Class<BaseLoginViewModel> {
         return BaseLoginViewModel::class.java

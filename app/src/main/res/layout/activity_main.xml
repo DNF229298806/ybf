@@ -50,6 +50,12 @@
             android:layout_height="50dp"
             android:text="测试2"/>
 
+        <Button
+                android:id="@+id/bt3"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="测试分组适配器"/>
+
         <ImageView
             android:layout_gravity="center"
             tools:src="@mipmap/app_logo"

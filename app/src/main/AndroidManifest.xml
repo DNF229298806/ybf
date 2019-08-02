@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".LoginActivity"/>
         <activity android:name=".testclass.AAAA"/>
+        <activity android:name=".testclass.FZActivity"/>
     </application>
 
 </manifest>
